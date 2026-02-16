@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovation Project - CETAA</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#0a192f',
+                        'brick': '#b94a3e',
+                        'cream': '#fbfbfb',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Glassmorphism Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass shadow-lg transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-brick rounded-full flex items-center justify-center">
+                        <span class="text-white font-display font-bold text-xl">C</span>
+                    </div>
+                    <div>
+                        <h1 id="navTitle"
+                            class="font-display font-bold text-white text-xl transition-colors duration-300">CETAA</h1>
+                        <p id="navSubtitle" class="text-xs text-gray-100 transition-colors duration-300">Alumni
+                            Association</p>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Home</a>
+                    <a href="#comparison"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Renovation</a>
+                    <a href="#donors"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Donate</a>
+                </div>
+
+                <button id="mobileMenuBtn" class="md:hidden text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Split Header Section -->
+    <section class="pt-24 pb-12 bg-gradient-to-br from-navy to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center text-white">
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-6"
+                    style="text-shadow: 2px 4px 8px rgba(0,0,0,0.6);">Preserving the Legacy</h1>
+                <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto"
+                    style="text-shadow: 1px 2px 4px rgba(0,0,0,0.5);">
+                    Help us rebuild the entrance that welcomed generations of engineers. Every brick tells a story.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Slider Section -->
+    <section id="comparison" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold text-navy text-center mb-4">See The Transformation</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Drag the slider to compare current state with the
+                proposed design</p>
+
+            <div class="comparison-slider" id="comparisonSlider">
+                <div class="img-wrapper">
+                    <img src="images/current-and-proposed-redesign/current-condition.jpg" alt="Current Condition"
+                        id="beforeImage">
+
+                    <div class="img-overlay" id="overlay">
+                        <img src="images/current-and-proposed-redesign/proposed-render.jpg" alt="Proposed Design"
+                            id="afterImage">
+                    </div>
+
+                    <!-- Labels -->
+                    <div class="label label-left">PROPOSED</div>
+                    <div class="label label-right">CURRENT</div>
+
+                    <!-- Draggable Handle -->
+                    <div class="slider-handle" id="sliderHandle"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="interactive-map" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold text-navy text-center mb-4">Renovation Breakdown</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Hover over areas to see estimated costs</p>
+
+            <div class="map-container">
+                <!-- Simplified SVG Map of Entrance -->
+                <svg viewBox="0 0 800 500" class="w-full" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background -->
+                    <rect width="800" height="500" fill="#f5f5f5" />
+
+                    <!-- Main Building -->
+                    <rect x="100" y="50" width="600" height="400" fill="#0a192f" stroke="#b94a3e" stroke-width="4" />
+
+                    <!-- Entrance Ramp (Hoverable Area 1) -->
+                    <path d="M 250 450 L 250 350 L 550 350 L 550 450 Z" fill="#b94a3e" opacity="0.7" class="map-area"
+                        data-area="ramp" data-cost="₹15,00,000" />
+
+                    <!-- Office Area (Hoverable Area 2) -->
+                    <rect x="150" y="150" width="200" height="150" fill="#8b7355" opacity="0.7" class="map-area"
+                        data-area="office" data-cost="₹25,00,000" />
+
+                    <!-- Main Hall (Hoverable Area 3) -->
+                    <rect x="450" y="150" width="200" height="150" fill="#4a5568" opacity="0.7" class="map-area"
+                        data-area="hall" data-cost="₹35,00,000" />
+
+                    <!-- Labels -->
+                    <text x="400" y="400" text-anchor="middle" fill="white" font-size="20" font-weight="bold">ENTRANCE
+                        RAMP</text>
+                    <text x="250" y="225" text-anchor="middle" fill="white" font-size="16">OFFICE</text>
+                    <text x="550" y="225" text-anchor="middle" fill="white" font-size="16">MAIN HALL</text>
+                </svg>
+
+                <!-- Tooltip -->
+                <div class="tooltip" id="mapTooltip"></div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="glass rounded-2xl p-8 inline-block">
+                    <p class="font-display text-3xl font-bold text-navy mb-2">Total Project Cost</p>
+                    <p class="text-5xl font-bold text-brick">₹75,00,000</p>
+                    <p class="text-gray-600 mt-2">Your contribution makes a lasting impact</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Wall -->
+    <section id="donors" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold text-navy text-center mb-4">Wall of Gratitude</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg">Every donor is a brick in rebuilding our legacy</p>
+
+            <div class="brick-wall">
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Rajesh Kumar</p>
+                    <p class="text-sm opacity-90">Class of 1985</p>
+                    <p class="text-sm mt-2">₹1,00,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Priya Menon</p>
+                    <p class="text-sm opacity-90">Class of 1992</p>
+                    <p class="text-sm mt-2">₹50,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Anil Sharma</p>
+                    <p class="text-sm opacity-90">Class of 1978</p>
+                    <p class="text-sm mt-2">₹2,00,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Lakshmi Iyer</p>
+                    <p class="text-sm opacity-90">Class of 2005</p>
+                    <p class="text-sm mt-2">₹75,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Suresh Nair</p>
+                    <p class="text-sm opacity-90">Class of 1995</p>
+                    <p class="text-sm mt-2">₹1,50,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Maya Das</p>
+                    <p class="text-sm opacity-90">Class of 2010</p>
+                    <p class="text-sm mt-2">₹25,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Vikram Reddy</p>
+                    <p class="text-sm opacity-90">Class of 1988</p>
+                    <p class="text-sm mt-2">₹3,00,000</p>
+                </div>
+
+                <div class="brick">
+                    <p class="font-display font-bold text-xl">Anjali Thomas</p>
+                    <p class="text-sm opacity-90">Class of 2002</p>
+                    <p class="text-sm mt-2">₹60,000</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#donate"
+                    class="inline-block bg-brick hover:bg-opacity-90 text-white px-12 py-4 rounded-full font-bold text-lg transition-all shadow-xl">
+                    Become a Donor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-display text-2xl font-bold mb-4">CETAA</h3>
+                    <p class="text-gray-300">Uniting generations of engineering excellence since 1939.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-brick transition-colors">Home</a></li>
+                        <li><a href="#comparison"
+                                class="text-gray-300 hover:text-brick transition-colors">Before/After</a></li>
+                        <li><a href="#donors" class="text-gray-300 hover:text-brick transition-colors">Donors</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display font-semibold text-lg mb-4">Get In Touch</h4>
+                    <p class="text-gray-300 mb-2">College of Engineering Trivandrum</p>
+                    <p class="text-gray-300 mb-2">Thiruvananthapuram, Kerala</p>
+                    <p class="text-gray-300">contact@cetaa.org</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 CETAA. Preserving Legacy, Building Future.</p>
+                <p class="text-gray-500 mt-2 text-sm">Designed & Built by <a href="https://mareomanoj.is-a.dev"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-brick hover:text-opacity-80 transition-colors font-medium">Mareo Manoj</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Navbar color change based on scroll position
+        const navbar = document.getElementById('navbar');
+        const navTitle = document.getElementById('navTitle');
+        const navSubtitle = document.getElementById('navSubtitle');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        function updateNavbarColor() {
+            const scrollPos = window.scrollY;
+
+            // The split header section has dark background, after that it's light
+            // Switch to dark text after ~400px (when reaching cream/white sections)
+            if (scrollPos > 400) {
+                // Switch to dark text for light backgrounds
+                navTitle.classList.remove('text-white');
+                navTitle.classList.add('text-navy');
+                navSubtitle.classList.remove('text-gray-100');
+                navSubtitle.classList.add('text-gray-600');
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-navy');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-gray-200');
+                    link.classList.add('text-navy', 'hover:text-brick');
+                });
+            } else {
+                // Keep white text for dark header background
+                navTitle.classList.remove('text-navy');
+                navTitle.classList.add('text-white');
+                navSubtitle.classList.remove('text-gray-600');
+                navSubtitle.classList.add('text-gray-100');
+                mobileMenuBtn.classList.remove('text-navy');
+                mobileMenuBtn.classList.add('text-white');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-navy', 'hover:text-brick');
+                    link.classList.add('text-white', 'hover:text-gray-200');
+                });
+            }
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', updateNavbarColor);
+        // Update on load
+        updateNavbarColor();
+
+        // Before/After Slider Functionality
+        const slider = document.getElementById('comparisonSlider');
+        const handle = document.getElementById('sliderHandle');
+        const overlay = document.getElementById('overlay');
+
+        let isDragging = false;
+
+        function updateSlider(e) {
+            if (!isDragging && e.type !== 'click') return;
+
+            const rect = slider.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+
+            // Constrain to slider bounds
+            x = Math.max(0, Math.min(x, rect.width));
+
+            const percentage = (x / rect.width) * 100;
+
+            overlay.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        }
+
+        handle.addEventListener('mousedown', () => {
+            isDragging = true;
+        });
+
+        document.addEventListener('mousemove', updateSlider);
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        slider.addEventListener('click', updateSlider);
+
+        // Touch support for mobile
+        handle.addEventListener('touchstart', (e) => {
+            isDragging = true;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                updateSlider(e.touches[0]);
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Interactive Map Tooltips
+        const mapAreas = document.querySelectorAll('.map-area');
+        const tooltip = document.getElementById('mapTooltip');
+
+        mapAreas.forEach(area => {
+            area.addEventListener('mouseenter', (e) => {
+                const areaName = e.target.dataset.area;
+                const cost = e.target.dataset.cost;
+                tooltip.innerHTML = `<strong>${areaName.toUpperCase()}</strong><br>${cost}`;
+                tooltip.classList.add('active');
+            });
+
+            area.addEventListener('mousemove', (e) => {
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+            });
+
+            area.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

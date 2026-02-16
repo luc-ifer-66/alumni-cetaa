@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CETAA - College of Engineering Trivandrum Alumni Association</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'navy': '#0a192f',
+                        'brick': '#b94a3e',
+                        'cream': '#fbfbfb',
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Glassmorphism Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass shadow-lg transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-brick rounded-full flex items-center justify-center">
+                        <span class="text-white font-display font-bold text-xl">C</span>
+                    </div>
+                    <div>
+                        <h1 id="navTitle"
+                            class="font-display font-bold text-white text-xl transition-colors duration-300">CETAA</h1>
+                        <p id="navSubtitle" class="text-xs text-gray-100 transition-colors duration-300">Alumni
+                            Association</p>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Home</a>
+                    <a href="renovation.html"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Renovation</a>
+                    <a href="#login"
+                        class="nav-link text-white hover:text-gray-200 transition-colors font-medium">Login</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white transition-colors duration-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Parallax -->
+    <section id="home" class="hero-parallax min-h-screen flex items-center justify-center"
+        style="background-image: url('images/hero/main-banner.jpg');">
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="font-display text-6xl md:text-8xl font-bold mb-6 fade-in"
+                style="text-shadow: 2px 4px 8px rgba(0,0,0,0.6);">Welcome Home, CETian</h1>
+            <p class="text-xl md:text-2xl font-light mb-8 fade-in"
+                style="animation-delay: 0.3s; text-shadow: 1px 2px 4px rgba(0,0,0,0.5);">Where Engineering Minds Meet
+                Timeless Legacy</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#history"
+                    class="inline-block text-white px-8 py-4 rounded-full font-bold text-lg transition-all fade-in shadow-2xl"
+                    style="animation-delay: 0.6s; background-color: #b94a3e;">
+                    Explore Our Journey
+                </a>
+                <a href="renovation.html"
+                    class="inline-block text-white px-8 py-4 rounded-full font-bold text-lg transition-all fade-in shadow-2xl border-2 border-white"
+                    style="animation-delay: 0.8s; background-color: #0a192f;">
+                    Support Renovation Project
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section id="history" class="py-20 bg-cream">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold text-navy text-center mb-16">Our Legacy</h2>
+
+            <div class="relative">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-brick timeline-line" id="timelineLine"
+                    style="top: 0; bottom: 0;"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-24">
+                    <!-- Milestone 1 - Left -->
+                    <div class="flex items-center timeline-item" data-side="left">
+                        <div class="w-1/2 pr-12 text-right">
+                            <div class="glass rounded-2xl p-6 shadow-xl slide-left">
+                                <img src="images/memory/1939-foundation.jpg" alt="College Founding"
+                                    class="w-full h-48 object-cover rounded-lg mb-4">
+                                <h3 class="font-display text-2xl font-bold text-navy mb-2">1939</h3>
+                                <p class="text-gray-700">The College of Engineering Trivandrum was founded, marking the
+                                    beginning of Kerala's engineering excellence.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-brick rounded-full border-4 border-cream z-10 flex items-center justify-center">
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Milestone 2 - Right -->
+                    <div class="flex items-center timeline-item" data-side="right">
+                        <div class="w-1/2"></div>
+                        <div
+                            class="w-12 h-12 bg-brick rounded-full border-4 border-cream z-10 flex items-center justify-center">
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-1/2 pl-12">
+                            <div class="glass rounded-2xl p-6 shadow-xl slide-right">
+                                <img src="images/memory/1975-alumni-formation.jpg" alt="Golden Era"
+                                    class="w-full h-48 object-cover rounded-lg mb-4">
+                                <h3 class="font-display text-2xl font-bold text-navy mb-2">1960s-70s</h3>
+                                <p class="text-gray-700">The Golden Era - Producing generations of engineers who shaped
+                                    India's infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Milestone 3 - Left -->
+                    <div class="flex items-center timeline-item" data-side="left">
+                        <div class="w-1/2 pr-12 text-right">
+                            <div class="glass rounded-2xl p-6 shadow-xl slide-left">
+                                <img src="images/memory/2000-digital-era.jpg" alt="Alumni Association"
+                                    class="w-full h-48 object-cover rounded-lg mb-4">
+                                <h3 class="font-display text-2xl font-bold text-navy mb-2">1995</h3>
+                                <p class="text-gray-700">CETAA was officially formed to unite alumni across the globe.
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-brick rounded-full border-4 border-cream z-10 flex items-center justify-center">
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-1/2"></div>
+                    </div>
+
+                    <!-- Milestone 4 - Right -->
+                    <div class="flex items-center timeline-item" data-side="right">
+                        <div class="w-1/2"></div>
+                        <div
+                            class="w-12 h-12 bg-brick rounded-full border-4 border-cream z-10 flex items-center justify-center">
+                            <div class="w-6 h-6 bg-white rounded-full"></div>
+                        </div>
+                        <div class="w-1/2 pl-12">
+                            <div class="glass rounded-2xl p-6 shadow-xl slide-right">
+                                <img src="images/memory/2024-renovation-announcement.jpg" alt="Modern CET"
+                                    class="w-full h-48 object-cover rounded-lg mb-4">
+                                <h3 class="font-display text-2xl font-bold text-navy mb-2">2026</h3>
+                                <p class="text-gray-700">Today - Rebuilding our roots while preserving the legacy for
+                                    future generations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Gallery - Masonry Grid -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="font-display text-5xl font-bold text-navy text-center mb-4">News & Memories</h2>
+            <p class="text-center text-gray-600 mb-12 text-lg font-light">Celebrating Excellence, Past and Present</p>
+
+            <div class="masonry-grid">
+                <!-- Item 1 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/alumni-meet-2024.jpg" alt="Annual Reunion"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Annual Reunion 2022</h3>
+                            <p class="text-gray-600">Over 500 alumni gathered to celebrate decades of excellence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/techfest-2023.jpg" alt="Tech Talk"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Industry Connect Series</h3>
+                            <p class="text-gray-600">Distinguished alumni sharing insights with current students.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/workshop-robotics.jpg" alt="Vintage Campus"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Through the Decades</h3>
+                            <p class="text-gray-600">A glimpse into the architectural evolution of our beloved campus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/convocation-ceremony.jpg" alt="Scholarship"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Scholarship Initiative</h3>
+                            <p class="text-gray-600">Supporting bright minds from underprivileged backgrounds.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/sports-day.jpg" alt="Sports Meet"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Inter-Batch Sports Championship
+                            </h3>
+                            <p class="text-gray-600">Reliving the competitive spirit across generations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="masonry-item">
+                    <div class="glass rounded-2xl overflow-hidden shadow-lg">
+                        <img src="images/news-gallery/cultural-night.jpg" alt="Cultural Fest"
+                            class="w-full h-auto object-cover">
+                        <div class="p-6">
+                            <h3 class="font-display text-xl font-bold text-navy mb-2">Heritage Cultural Fest</h3>
+                            <p class="text-gray-600">Celebrating the rich cultural tapestry of CET.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 relative overflow-hidden">
+        <!-- Building Silhouette SVG (simplified) -->
+        <svg class="building-silhouette" viewBox="0 0 300 200" fill="white" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="80" width="60" height="120" />
+            <rect x="120" y="50" width="80" height="150" />
+            <rect x="210" y="90" width="50" height="110" />
+            <rect x="60" y="90" width="10" height="15" />
+            <rect x="80" y="90" width="10" height="15" />
+            <rect x="60" y="115" width="10" height="15" />
+            <rect x="80" y="115" width="10" height="15" />
+            <rect x="130" y="70" width="12" height="18" />
+            <rect x="150" y="70" width="12" height="18" />
+            <rect x="170" y="70" width="12" height="18" />
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- About -->
+                <div>
+                    <h3 class="font-display text-2xl font-bold mb-4">CETAA</h3>
+                    <p class="text-gray-300">Uniting generations of engineering excellence since 1939.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-display font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-brick transition-colors">Home</a></li>
+                        <li><a href="renovation.html"
+                                class="text-gray-300 hover:text-brick transition-colors">Renovation Project</a></li>
+                        <li><a href="#history" class="text-gray-300 hover:text-brick transition-colors">Our History</a>
+                        </li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-brick transition-colors">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-display font-semibold text-lg mb-4">Get In Touch</h4>
+                    <p class="text-gray-300 mb-2">College of Engineering Trivandrum</p>
+                    <p class="text-gray-300 mb-2">Thiruvananthapuram, Kerala</p>
+                    <p class="text-gray-300">contact@cetaa.org</p>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2026 CETAA. Preserving Legacy, Building Future.</p>
+                <p class="text-gray-500 mt-2 text-sm">Designed & Built by <a href="https://mareomanoj.is-a.dev"
+                        target="_blank" rel="noopener noreferrer"
+                        class="text-brick hover:text-opacity-80 transition-colors font-medium">Mareo Manoj</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Animations -->
+    <script>
+        // Navbar color change based on scroll position
+        const navbar = document.getElementById('navbar');
+        const navTitle = document.getElementById('navTitle');
+        const navSubtitle = document.getElementById('navSubtitle');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        function updateNavbarColor() {
+            const scrollPos = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // If we're past the hero section (which has dark overlay), switch to dark text
+            // Hero section is approximately 100vh, so check if scroll > 80vh
+            if (scrollPos > windowHeight * 0.8) {
+                // Switch to dark text for light backgrounds
+                navTitle.classList.remove('text-white');
+                navTitle.classList.add('text-navy');
+                navSubtitle.classList.remove('text-gray-100');
+                navSubtitle.classList.add('text-gray-600');
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-navy');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-white', 'hover:text-gray-200');
+                    link.classList.add('text-navy', 'hover:text-brick');
+                });
+            } else {
+                // Keep white text for dark hero background
+                navTitle.classList.remove('text-navy');
+                navTitle.classList.add('text-white');
+                navSubtitle.classList.remove('text-gray-600');
+                navSubtitle.classList.add('text-gray-100');
+                mobileMenuBtn.classList.remove('text-navy');
+                mobileMenuBtn.classList.add('text-white');
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-navy', 'hover:text-brick');
+                    link.classList.add('text-white', 'hover:text-gray-200');
+                });
+            }
+        }
+
+        // Update on scroll
+        window.addEventListener('scroll', updateNavbarColor);
+        // Update on load
+        updateNavbarColor();
+
+        // Intersection Observer for Timeline Animation
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px'
+        };
+
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+
+                    // Animate timeline line
+                    const timelineLine = document.getElementById('timelineLine');
+                    if (timelineLine) {
+                        timelineLine.style.height = '100%';
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+
+        // Parallax Effect for Hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-parallax');
+            if (parallax) {
+                parallax.style.backgroundPositionY = -(scrolled * 0.5) + 'px';
+            }
+        });
+
+        // Smooth reveal for masonry items
+        const masonryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const masonryItems = document.querySelectorAll('.masonry-item');
+        masonryItems.forEach((item, index) => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+            masonryObserver.observe(item);
+        });
+    </script>
+</body>
+
+</html>
